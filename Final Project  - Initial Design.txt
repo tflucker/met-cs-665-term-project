@@ -1,0 +1,68 @@
+Final Project Design
+
+Entities
+
+ - Department
+	+ String name 
+	+ Map<String, List<Course>> courses
+	
+ - Program
+	+ String name
+	+ Department department
+	
+	* DegreeProgram
+		+ String type 
+		+ int length
+		+ List<Course> requiredCourses
+		+ List<Course> electiveCourse
+		+ boolean thesisRequired
+		
+		
+	* CertificateProgram
+		+ String concentration
+		+ List<Course> requiredCourses
+	
+ - Faculty
+	+ String name
+	+ String phoneNumber
+	+ String email
+	
+	* Chairperson
+		+ Course course
+	
+	* Full-Time Faculty
+		+ List<Course> courses
+		+ boolean isGraduateAdvisor
+		+ boolean isUndergraduateAdvisor
+		+ List<Student> thesisAdvisees
+	
+	* Part-Time Faculty
+		+ Course course
+
+	
+ - Student
+	+ String name
+	+ String phoneNumber
+	+ String email
+	+ Map<String, List<Course>> courses
+	+ Program enrolledProgram
+	+ Faculty thesisAdvisor
+	+ String thesisTopic
+	+ getCourses(String semester): List<Course>
+	+ 
+	
+ - Course
+	+ String description
+	+ String syllabusLink
+	+ Faculty instructor
+	+ String concentration
+	+ String subConcentration
+	+ int enrollmentLimit
+	+ List<Student> enrolledStudents
+	+ List<Student>	waitlistedStudents
+	+ format(): HTML format?
+	
+
+ - CompletedCourses? extends Course?
+	- String semesterCompleted
+	- int grade
